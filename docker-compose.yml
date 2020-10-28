@@ -10,9 +10,9 @@ services:
     nginx:
         build: ./nginx
         container_name: nginx 
-        environmetn:
+        environment:
             - SERVER_NAME=0.0.0.0
         restart: always
         network_mode: host
-        
+
 
