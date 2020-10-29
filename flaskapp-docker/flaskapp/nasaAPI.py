@@ -5,7 +5,7 @@ import random
 
 class API():
     def __init__(self):
-        self.key = 'gRXcBRFY5fKOMMezaPhGUmULp5vLCIOxIumUdynP' ##"ADD APIKEY HERE"
+        self.key = "ADD APIKEY HERE"
     
     def getCuriosity(self):
         key = self.key
@@ -29,6 +29,21 @@ class API():
 
     def getHubble(self):
         url = 'https://images-api.nasa.gov/search?q=hubble&media_type=image'
+        r = requests.get(url = url)
+        data = r.json()
+        new_data = data['collection']['items']
+        pics = []
+
+        l = len(new_data) - 1
+
+        for i in range(6):
+            rand = random.randint(0, l)
+            pics.append(new_data[rand]['links'][0]['href'])
+        
+        return pics
+
+    def getEarth(self):
+        url = 'https://images-api.nasa.gov/search?q=Blue Earth&media_type=image'
         r = requests.get(url = url)
         data = r.json()
         new_data = data['collection']['items']
