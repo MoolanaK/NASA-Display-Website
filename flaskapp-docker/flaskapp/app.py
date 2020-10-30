@@ -10,7 +10,7 @@ def nasa():
     return render_template("index.html")
 
 @app.route("/earth")
-def pictureOfTheDay():
+def earth():
     api = nasaAPI.API()
     pics = api.getEarth()
     img1, img2, img3, img4, img5, img6 = pics
